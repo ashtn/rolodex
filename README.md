@@ -7,6 +7,8 @@ Create a single-page application using Backbone that will track contact informat
 - Continue utilizing jQuery, HTML & CSS knowledge
 - Create a responsive, dynamic look & feel
 
+This is a [stage 2](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/rule-of-three.md#stage-2) project.
+
 ## Requirements
 Your application shall be a single-page application that has interactive features, allowing the user to view a list of contacts, add new contacts into it, and view the details for a selected contact. Optionally your application will support editing the data for the selected contact.
 
