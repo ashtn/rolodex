@@ -42,7 +42,7 @@ When wave 2 is complete your application should:
 ### Wave 3
 In this wave we will implement a **modal** element for viewing the full details of a single contact selected from the contacts list.
 
-A modal (or modal window) is a section of your UI that appears on top of the rest of the page, and "steals the focus" from the page beneath it. When another section of the page is clicked upon, the modal disappears. One example of a modal is the [user registration/sign-in form on imgur](http://ui-patterns.com/patterns/modal-windows/examples/16841). You can see many more examples of modals [on this webpage](http://ui-patterns.com/patterns/modal-windows/examples).
+A modal (or modal window) is a section of your UI that appears on top of the rest of the page, and "steals the focus" from the page beneath it. When another section of the page is clicked upon, the modal disappears. One example of a modal is the [user registration/sign-in form on imgur](http://ui-patterns.com/patterns/modal-windows/examples/16841). You can see many more examples of modals [on this webpage](http://ui-patterns.com/patterns/modal-windows/examples).  To do this your `RolodexView` should be listening for events on each individual `ContactView` and each `ContactView` should trigger a custom event when clicked on.  
 
 When wave 3 is complete your application should:
 - Allow the user to select a `Contact` by clicking upon its card in the contacts list.
