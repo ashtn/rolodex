@@ -2,7 +2,7 @@ import $ from 'jquery';
 import _ from 'underscore';
 // links contact model to application js file
 import Contact from './app/models/contact.js';
-
+import Rolodex from './app/collections/rolodex.js';
 
 // new instance of contact model with static data, this is just for testing purposes
 var myContact = new Contact({
@@ -26,7 +26,12 @@ var render = function(contact){
   $('#contact-cards').append(compiledHTML);
 };
 
+// new instance of Rolodex (collection)
+var myRolodex = new Rolodex(myContact);
+
+
+
 $(document).ready(function() {
-  console.log('heyyyy');
-  render(myContact);
+  // console.log('heyyyy');
+  // render(myContact);
 });
