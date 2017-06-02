@@ -21,9 +21,10 @@ const ContactView = Backbone.View.extend({
   events: {
     'click': 'onClick'
 },
-onClick: function(){
+onClick: function(event){
+  // Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event.
+  event.stopPropagation();
   var click = this.trigger('selectedCard', this.model);
-  console.log('click', click);
 }
 });
 

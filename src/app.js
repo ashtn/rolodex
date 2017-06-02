@@ -8,18 +8,20 @@ import ContactView from './app/views/contact_view.js';
 import RolodexView from './app/views/rolodex_view.js';
 
 // new instance of contact model with static data, this is just for testing purposes
-var myContact = new Contact(
+
+$('#contact-details').hide();
+
+var myContacts = [
   {
   name: 'Ashton',
   email: 'ashton@ashton.com',
   phone: '909-000-0000'
-}
-// {
-//   name: 'Test',
-//   email: 'Test@test.com',
-//   phoneNumber: '000-000-0000'
-// }
-);
+},
+{
+  name: 'Test',
+  email: 'Test@test.com',
+  phone: '000-000-0000'
+}];
 
 // NOTE notice the use of closures here
 // var render = function(contact){
@@ -37,7 +39,7 @@ var myContact = new Contact(
 // };
 
 // new instance of Rolodex (collection)
-var myRolodex = new Rolodex(myContact);
+var myRolodex = new Rolodex(myContacts);
 
 
 

@@ -8,6 +8,7 @@ import ContactView from '../views/contact_view.js';
 var RolodexView = Backbone.View.extend({
   initialize: function(params){
     this.contactTemplate = params.template;
+    //backbone event listener
     this.listenTo(this.model, "update", this.render);
     this.modalTemplate = _.template($('#tmpl-contact-details').html());
   },
@@ -25,6 +26,7 @@ var RolodexView = Backbone.View.extend({
         myTemplate: that.contactTemplate, // gives it to contact view
         // tagName: ''
       });
+      //backbone event listener for new contactView
       that.listenTo(contactView, "selectedCard", that.displayModal);
       // rendered the view and append the new view to the 'todo-items'
       that.$('#contact-cards').append(contactView.render().$el);
@@ -36,15 +38,15 @@ var RolodexView = Backbone.View.extend({
     //listens for the click on the save
     'click .btn-save': 'saveContact',
     'click .btn-cancel': 'clearContact',
-    // 'click .contact-card': 'viewContact'
+    'click': 'hideModal'
   },
   getInputData: function(){
-    var inputName = this.$('#name').val(); this.$('#name').val('');
-    // var inputName = this.$('label[name=name]').val(); this.$('lable[name=name]').val('');
-    var inputEmail = this.$('#email').val(); this.$('#email').val('');
-    // var inputEmail = this.$('label[name=email]').val(); this.$('lable[name=name]').val('');
-    var inputPhone = this.$('#phone').val(); this.$('#phone').val('');
-    // var inputPhone = this.$('label[name=phone]').val(); this.$('lable[name=name]').val('');
+
+    var inputName = this.$('input[name=name]').val(); this.$('input[name=name]').val('');
+
+    var inputEmail = this.$('input[name=email]').val(); this.$('label[name=email]').val('');
+
+    var inputPhone = this.$('input[name=phone]').val(); this.$('label[name=phone]').val('');
 
     return {
       name: inputName,
@@ -55,7 +57,6 @@ var RolodexView = Backbone.View.extend({
   // creates new contact model object with the information passed from the form
   saveContact: function(){
     var contact = new Contact(this.getInputData());
-    console.log('add contact-buttion');
     //adds the new contact model to the rolodex collection
     // this add triggers the `update` listener above
     this.model.add(contact);
@@ -67,16 +68,28 @@ var RolodexView = Backbone.View.extend({
   },
 
   displayModal: function(contact){
+    console.log('clicked Contact now showing modal');
     // console.log('contact: ', contact);
     // console.log('contact.toJSON: ',contact.toJSON());
     $('#contact-details').empty();
+    $('#contact-details').show();
 
     // var modalDetails = this.
     var generatedModalTemplate = this.modalTemplate(contact.attributes);
+    // TODO what's best practice?
+    //var generatedModalTemplate = this.modalTemplate(contact.toJSON())
 
     this.$('#contact-details').append(generatedModalTemplate);
+    //
+    // return this;
+  },
+  hideModal: function(event){
 
-    return this;
+    // console.log('event.target', event.target);
+
+    if($('#contact-details').has(event.target).length === 0 && !$('#contact-details').is(event.target)){
+      $('#contact-details').hide();
+    }
   }
 });
 
