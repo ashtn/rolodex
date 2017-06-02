@@ -23,9 +23,12 @@ When wave 1 is complete your application should:
 
 ### Wave 2
 When wave 2 is complete your application should:
-- Have a Backbone **Collection** subclass called `Rolodex`. This collection should use the model `Contact`.
-- Display a list of contact cards (as in Wave 1) using the `Rolodex` collection. This list should update when a new entry is added to collection.
+> - Have a Backbone **Collection** subclass called `Rolodex`. This collection should use the model `Contact`.
+
+ - Display a list of contact cards (as in Wave 1) using the `Rolodex` collection. This list should update when a new entry is added to collection.
+
 - Have a Backbone **View** subclass called `ContactView`.
+
 - Display a each contact card on the contact list. This contact card should:
   - Be implemented by using `Contact` and `ContactView` together.
   - Show the name only, no other contact details.
