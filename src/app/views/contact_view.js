@@ -6,18 +6,15 @@ import Contact from '../models/contact.js';
 const ContactView = Backbone.View.extend({
 
   initialize: function(params){
-    this.template = params.myTemplate; // this matches the render
-    // this.listenTo(this.model, "change", this.render);
+    this.template = params.myTemplate;
   },
   render: function(){
-    // console.log('this.model: ', this.model);
     var generatedHTMLView = this.template(this.model.toJSON());
 
     this.$el.html(generatedHTMLView);
 
     return this;
   },
-  //////// acts kind of like the controller - charles //////
   events: {
     'click': 'onClick'
 },
